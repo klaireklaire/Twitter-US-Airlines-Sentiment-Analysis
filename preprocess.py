@@ -72,7 +72,7 @@ df['processed_text'] = preprocess(df['text'])
 full_text = " ".join(df['processed_text'])
 doc = nlp(full_text)
 
-print(doc.type())
+# print(doc.type())
 
 
 
