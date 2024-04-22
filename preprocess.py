@@ -73,7 +73,7 @@ def preprocess(doc):
     # clean_doc = clean_doc.apply(lambda x : base_word(x))
 
     # stem tokens
-    clean_doc = clean_doc.apply(lambda x : " ".join(stemmer.stem(word) for word in x.split()))
+    #clean_doc = clean_doc.apply(lambda x : " ".join(stemmer.stem(word) for word in x.split()))
 
     
     return clean_doc
@@ -127,12 +127,14 @@ def tune_train_evaluate_mnb_muticlass(X, y, X_train, X_test, y_train, y_test):
 
 def main():
 
-    # df['processed_text'] = preprocess(df['text'])
-    # full_text = " ".join(df['processed_text'])
-    # doc = nlp(full_text)
+    df['processed_text'] = preprocess(df['text'])
+    full_text = " ".join(df['processed_text'])
+    doc = nlp(full_text)
 
-    # df.to_pickle("cleaned.csv")
-    df_cleaned = pd.read_pickle("cleaned.csv")
+    df.to_pickle("cleaned_no_stem.csv")
+    df.to_csv("cleaned_readable.csv")
+    df_cleaned = pd.read_pickle("cleaned_no_stem.csv")
+    print(df_cleaned.head(10)['processed_text'])
     X = vectorize(df_cleaned['processed_text'], is_train=True)
     y = df_cleaned['airline_sentiment']
 
