@@ -33,6 +33,7 @@ import tensorflow as tf
 # print(f"Test Accuracy: {test_acc}")
 from nltk.tokenize import word_tokenize
 import pandas as pd
+import math
 
 from string import punctuation
 from os import listdir
@@ -42,17 +43,18 @@ from numpy import zeros
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
-from tensorflow.keras.layers import Flatten
-from tensorflow.keras.layers import Embedding
-from sklearn.model_selection import train_test_split
-# from tensorflow.keras.layers.convolutional import Conv1D
-# from tensorflow.keras.layers.convolutional import MaxPooling1D
+from tensorflow.keras.layers import Dense, Flatten, Embedding, Conv1D, MaxPooling1D
 
-# doc = pd.read_csv('cleaned_readable.csv')
-# processed_text = doc["processed_text"]
-# tokens = [word_tokenize(str(sent)) for sent in processed_text]
-# tokens = [item for row in tokens for item in row]
+doc = pd.read_csv('cleaned_readable.csv')
+processed_text = doc["processed_text"]
+tokens = [word_tokenize(str(sent)) for sent in processed_text]
+tokens = [item for row in tokens for item in row]
+sentiments = doc["airline_sentiment"]
+
+positive_tweets = [tweet for tweet, sentiment in zip(processed_text, sentiments) if sentiment == "positive"]
+negative_tweets = [tweet for tweet, sentiment in zip(processed_text, sentiments) if sentiment == "negative"]
+neutral_tweets = [tweet for tweet, sentiment in zip(processed_text, sentiments) if sentiment == "neutral"]
+
 
 # # save list to file
 # def save_list(lines, filename):
@@ -134,11 +136,15 @@ vocab = set(vocab)
 
 
 # load all training reviews
-positive_docs = process_docs('txt_sentoken/pos', vocab, True)
-negative_docs = process_docs('txt_sentoken/neg', vocab, True)
-train_docs = negative_docs + positive_docs
+split_index = math.floor(len(positive_tweets) * 0.7)
+train_positive_docs = positive_tweets[:split_index]
+test_positive_docs = positive_tweets[split_index:]
 
-xtrain, xtest, ytrain, ytest = train_test_split(X, y, test_size=0.3, train_size=0.7, random_state=42)
+split_index = math.floor(len(negative_tweets) * 0.7)
+train_negative_docs = negative_tweets[:split_index]
+test_negative_docs = negative_tweets[split_index:]
+
+train_docs = train_negative_docs + train_positive_docs
 
 # create the tokenizer
 tokenizer = Tokenizer()
@@ -154,15 +160,15 @@ Xtrain = pad_sequences(encoded_docs, maxlen=max_length, padding='post')
 ytrain = array([0 for _ in range(900)] + [1 for _ in range(900)])
  
 # load all test reviews
-positive_docs = process_docs('txt_sentoken/pos', vocab, False)
-negative_docs = process_docs('txt_sentoken/neg', vocab, False)
-test_docs = negative_docs + positive_docs
+test_docs = test_negative_docs + test_positive_docs
+
 # sequence encode
 encoded_docs = tokenizer.texts_to_sequences(test_docs)
 # pad sequences
 Xtest = pad_sequences(encoded_docs, maxlen=max_length, padding='post')
 # define test labels
 ytest = array([0 for _ in range(100)] + [1 for _ in range(100)])
+print("this is ytest ", ytest)
  
 # define vocabulary size (largest integer value)
 vocab_size = len(tokenizer.word_index) + 1
