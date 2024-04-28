@@ -1,4 +1,4 @@
-import tensorflow as tf
+# import tensorflow as tf
 # from tf import keras
 
 # from tensorflow.keras.models import Sequential
@@ -31,6 +31,7 @@ import tensorflow as tf
 # # Assume `test_data` and `test_labels` are prepared in the same way as `data` and `labels`
 # test_loss, test_acc = model.evaluate(data, labels)
 # print(f"Test Accuracy: {test_acc}")
+import tensorflow as tf
 from nltk.tokenize import word_tokenize
 import pandas as pd
 import math
@@ -47,28 +48,31 @@ from tensorflow.keras.layers import Dense, Flatten, Embedding, Conv1D, MaxPoolin
 
 doc = pd.read_csv('cleaned_readable.csv')
 processed_text = doc["processed_text"]
-tokens = [word_tokenize(str(sent)) for sent in processed_text]
-tokens = [item for row in tokens for item in row]
 sentiments = doc["airline_sentiment"]
 
-positive_tweets = [tweet for tweet, sentiment in zip(processed_text, sentiments) if sentiment == "positive"]
-negative_tweets = [tweet for tweet, sentiment in zip(processed_text, sentiments) if sentiment == "negative"]
-neutral_tweets = [tweet for tweet, sentiment in zip(processed_text, sentiments) if sentiment == "neutral"]
+processed_data = [(tweet, sentiment) for tweet, sentiment in zip(processed_text, sentiments) if isinstance(tweet, str)]
 
 
-# # save list to file
-# def save_list(lines, filename):
-# 	# convert lines to a single blob of text
-# 	data = '\n'.join(lines)
-# 	# open file
-# 	file = open(filename, 'w')
-# 	# write text
-# 	file.write(data)
-# 	# close file
-# 	file.close()
+tokens = [(word_tokenize(str(data[0])), data[1]) for data in processed_data]
+words = [item for row in tokens for item in row[0]]
 
-# # save tokens to a vocabulary file
-# save_list(tokens, 'vocab.txt')
+positive_tweets = [tweet for tweet, sentiment in tokens if sentiment == "positive"]
+negative_tweets = [tweet for tweet, sentiment in tokens if sentiment == "negative"]
+neutral_tweets = [tweet for tweet, sentiment in tokens if sentiment == "neutral"]
+
+# save list to file
+def save_list(lines, filename):
+	# convert lines to a single blob of text
+	data = '\n'.join(lines)
+	# open file
+	file = open(filename, 'w')
+	# write text
+	file.write(data)
+	# close file
+	file.close()
+
+# save tokens to a vocabulary file
+save_list(words, 'vocab.txt')
 
 # load doc into memory
 def load_doc(filename):
@@ -145,7 +149,7 @@ train_negative_docs = negative_tweets[:split_index]
 test_negative_docs = negative_tweets[split_index:]
 
 train_docs = train_negative_docs + train_positive_docs
-
+# print(train_docs)
 # create the tokenizer
 tokenizer = Tokenizer()
 # fit the tokenizer on the documents
@@ -174,7 +178,7 @@ print("this is ytest ", ytest)
 vocab_size = len(tokenizer.word_index) + 1
 
 # load embedding from file
-raw_embedding = load_embedding('glove.twitter.27B.100d.txt')
+raw_embedding = load_embedding('glove.twitter.27B.25d.txt')
 # get vectors in the right order
 embedding_vectors = get_weight_matrix(raw_embedding, tokenizer.word_index)
 # create the embedding layer

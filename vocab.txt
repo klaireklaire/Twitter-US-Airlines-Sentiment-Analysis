@@ -1903,7 +1903,6 @@ seats
 class
 arms
 race
-nan
 way
 advantage
 know
@@ -3159,7 +3158,6 @@ rough
 trip
 luckily
 flight
-nan
 come
 minneapolis
 st
@@ -4742,7 +4740,6 @@ making
 connection
 let
 know
-nan
 thanks
 sent
 I
@@ -5705,7 +5702,6 @@ share
 travel
 plans
 publicly
-nan
 favorite
 airline
 seriously
@@ -7432,7 +7428,6 @@ compensation
 says
 free
 tv
-nan
 thank
 jh
 appreciate
@@ -9688,7 +9683,6 @@ birthdate
 starting
 robotic
 response
-nan
 control
 turbulence
 control
@@ -12871,7 +12865,6 @@ lack
 customer
 centricity
 astounding
-nan
 nice
 partner
 tickets
@@ -17763,7 +17756,6 @@ stop
 told
 I
 pay
-nan
 tonight
 fred
 flintstone
@@ -22386,7 +22378,6 @@ told
 include
 wheels
 dimensions
-nan
 ticket
 refunded
 purchased
@@ -23643,7 +23634,6 @@ app
 customer
 service
 terrible
-nan
 send
 help
 asap
@@ -26230,7 +26220,6 @@ making
 sure
 hear
 message
-nan
 got
 email
 cust
@@ -27650,7 +27639,6 @@ flights
 come
 visit
 states
-nan
 recap
 bounced
 flight
@@ -31532,7 +31520,6 @@ bag
 lost
 travel
 united
-nan
 stuck
 plane
 hour
@@ -34964,7 +34951,6 @@ got
 1001
 felt
 like
-nan
 think
 faster
 response
@@ -38361,7 +38347,6 @@ turning
 12
 marchand
 cont
-nan
 retiring
 hubby
 25th
@@ -39029,7 +39014,6 @@ rebooked
 days
 late
 flightr
-nan
 currently
 rebooked
 dallas
@@ -41943,7 +41927,6 @@ luv
 swa
 employees
 use
-nan
 flight
 book
 fly
@@ -43391,7 +43374,6 @@ florida
 right
 help
 sister
-nan
 son
 flying
 south
@@ -43891,7 +43873,6 @@ tickets
 vegas
 forever
 grateful
-nan
 thank
 chance
 change
@@ -43932,8 +43913,6 @@ im
 8
 min
 away
-nan
-nan
 yes
 like
 need
@@ -44522,7 +44501,6 @@ midb
 ticket
 spend
 50
-nan
 maybe
 machine
 plane
@@ -44634,7 +44612,6 @@ creditwhats
 10
 extra
 days
-nan
 going
 inconsistent
 enforcing
@@ -47978,7 +47955,6 @@ pretty
 entertain
 witty
 repartee
-nan
 trying
 book
 flight
@@ -48870,7 +48846,6 @@ use
 app
 sorry
 thought
-nan
 yea
 hoping
 avoid
@@ -53225,7 +53200,6 @@ flying
 civilized
 like
 follow
-nan
 mco
 lag
 hour
@@ -53545,7 +53519,6 @@ smh
 rt
 fleets
 fleek
-nan
 fleets
 fleek
 plz
@@ -53787,7 +53760,6 @@ hook
 flight
 fleets
 fleek
-nan
 major
 planewide
 directtv
@@ -54341,7 +54313,6 @@ fleets
 fleek
 delete
 account
-nan
 family
 excited
 rt
@@ -54516,7 +54487,6 @@ lmao
 fleets
 fleek
 digg
-nan
 want
 guys
 fly
@@ -54537,7 +54507,6 @@ designer
 finally
 proper
 channels
-nan
 looking
 cool
 fleets
@@ -57165,7 +57134,6 @@ car
 service
 waiting
 time
-nan
 landing
 usual
 great
@@ -57824,7 +57792,6 @@ time
 910
 I
 onboard
-nan
 910
 flight
 listed
@@ -60645,7 +60612,6 @@ soon
 flt
 1202
 delayed
-nan
 heading
 buffalo
 trading
@@ -61526,7 +61492,6 @@ service
 agents
 needs
 act
-nan
 team
 offer
 access
@@ -63873,7 +63838,6 @@ airline
 world
 jetblue
 goes
-nan
 wow
 guys
 answer
@@ -65067,7 +65031,6 @@ team
 serve
 cinnabons
 flights
-nan
 hey
 guys
 remembered
@@ -69579,7 +69542,6 @@ broken
 plane
 thanks
 guys
-nan
 looks
 like
 long
@@ -71913,7 +71875,6 @@ said
 couldnt
 handle
 calls
-nan
 told
 late
 flightr
@@ -72566,7 +72527,6 @@ people
 working
 total
 mess
-nan
 I
 supposed
 fly
@@ -81934,7 +81894,6 @@ transferred
 4x
 pleeeeeeeease
 help
-nan
 flight
 treatment
 passengers
@@ -82202,7 +82161,6 @@ flight
 phx
 jwa
 help
-nan
 rudest
 crew
 member
@@ -82546,7 +82504,6 @@ I
 qantas
 notifications
 thank
-nan
 runs
 airport
 boarding
@@ -83565,7 +83522,6 @@ happy
 friday
 hope
 connection
-nan
 ran
 fast
 life
@@ -86071,7 +86027,6 @@ late
 flighthis
 bag
 fit
-nan
 thanks
 slowing
 inbound
@@ -86481,7 +86436,6 @@ staff
 clearly
 cteam
 btw
-nan
 unfortunately
 doubt
 consistently
@@ -86502,7 +86456,6 @@ loved
 flight
 forgot
 bags
-nan
 told
 ticket
 expired
@@ -86682,7 +86635,6 @@ days
 20
 calls
 message
-nan
 airline
 misplace
 airline
@@ -86711,7 +86663,6 @@ bags
 refund
 flight
 weather
-nan
 wife
 flight
 changes
@@ -88662,7 +88613,6 @@ time
 fly
 nashville
 right
-nan
 push
 rebook
 800
@@ -89225,7 +89175,6 @@ fate
 dozens
 kids
 board
-nan
 flight
 update
 help
@@ -90604,7 +90553,6 @@ customer
 service
 phone
 number
-nan
 site
 clearly
 explains
@@ -91668,7 +91616,6 @@ prolonged
 prds
 time
 frustrating
-nan
 connect
 person
 having
@@ -92889,7 +92836,6 @@ prolonged
 prds
 time
 frustrating
-nan
 connect
 person
 having
@@ -96221,7 +96167,6 @@ like
 compensation
 timemoney
 lost
-nan
 rebooked
 flight
 late
@@ -96459,7 +96404,6 @@ different
 customer
 service
 line
-nan
 help
 phone
 gate
@@ -96522,7 +96466,6 @@ saying
 wait
 2
 hrs
-nan
 okay
 look
 fear
@@ -97478,7 +97421,6 @@ add
 air
 air
 thanksm
-nan
 apology
 good
 4
@@ -101192,7 +101134,6 @@ meit
 49
 hours
 luggage
-nan
 system
 hangs
 dm
@@ -101721,7 +101662,6 @@ january
 1st
 change
 availability
-nan
 possible
 change
 flight
@@ -102753,7 +102693,6 @@ hour
 flight
 care
 safety
-nan
 voided
 ticket
 24hrs
@@ -106784,7 +106723,6 @@ staff
 desk
 queuing
 hr
-nan
 worse
 time
 responded
@@ -109626,7 +109564,6 @@ clean
 shirt
 work
 tomorrow
-nan
 hey
 think
 left
