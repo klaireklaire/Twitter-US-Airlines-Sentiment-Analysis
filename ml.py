@@ -35,15 +35,20 @@ def tune_train_evaluate_mnb_muticlass(X, y, X_train, X_test, y_train, y_test):
 
     return nb_best
 
-def get_top_features(classifier, feature_names, top_n=10):
+def get_top_features(classifier, feature_names, top_n=500):
     """Retrieve top n features that contribute most to each class."""
+    # tuple
+    res = []
     for i, class_label in enumerate(classifier.classes_):
         top_positive_features = np.argsort(classifier.feature_log_prob_[i])[-top_n:]
-        top_negative_features = np.argsort(classifier.feature_log_prob_[i])[:top_n]
+        #top_negative_features = np.argsort(classifier.feature_log_prob_[i])[:top_n]
 
         print(f"Top positive words for class {class_label}:")
-        print([feature_names[j] for j in top_positive_features])
+        res.append([feature_names[j] for j in top_positive_features])
+        #print([feature_names[j] for j in top_positive_features])
+    return res
+    
 
-        print(f"Top negative words for class {class_label}:")
-        print([feature_names[j] for j in top_negative_features])
+        #print(f"Top negative words for class {class_label}:")
+        #print([feature_names[j] for j in top_negative_features])
 

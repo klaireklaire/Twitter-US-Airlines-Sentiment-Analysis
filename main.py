@@ -2,6 +2,8 @@ from preprocess import preprocess, vectorize, vectorizer
 from ml import tune_train_evaluate_mnb_muticlass, get_top_features
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
+import joblib
+from lda import latent_dirichlet_allocation
 import numpy as np
 import sys
 
@@ -27,11 +29,24 @@ def main():
     xtrain, xtest, ytrain, ytest = train_test_split(X, y, test_size=0.3, train_size=0.7, random_state=42)
 
     nb_best = tune_train_evaluate_mnb_muticlass(X, y, xtrain, xtest, ytrain, ytest)
+    # Save the model to a file
+    #joblib.dump(nb_best, 'mnb_model.pkl')
+
+    # Later, to load the model
+    #nb_best = joblib.load('mnb_model.pkl')
     feature_names = vectorizer.get_feature_names_out()
-    get_top_features(nb_best, feature_names)
+    all_keywords = get_top_features(nb_best, feature_names)
+    positive = latent_dirichlet_allocation(all_keywords[2])
+    print(all_keywords[2])
+    print(positive)
+   
+    
+
     orig_stdout = sys.stdout
     f = open('out.txt', 'w')
     sys.stdout = f
+
+
     
     for sen in df_cleaned['processed_text'] :
         print(sen + "\n")
