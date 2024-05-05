@@ -36,20 +36,13 @@ def read_and_process_data():
 def save_list(lines, filename):
 	# convert lines to a single blob of text
 	data = '\n'.join(lines)
-	# open file
 	file = open(filename, 'w')
-	# write text
 	file.write(data)
-	# close file
 	file.close()
 
-# load doc into memory
 def load_doc(filename):
-    # open the file as read only
     file = open(filename, 'r')
-    # read all text
     text = file.read()
-    # close the file
     file.close()
     return text
 
@@ -155,6 +148,7 @@ def define_and_evaluate_model(embedding_layer, Xtrain, ytrain, Xtest, ytest):
     
     y_pred = (model.predict(Xtest) > 0.5).astype("int32")
     
+    # print out relevant information
     print("Confusion Matrix:")
     cm = confusion_matrix(ytest, y_pred)
     print(classification_report(ytest, y_pred, target_names=['Negative', 'Positive']))
