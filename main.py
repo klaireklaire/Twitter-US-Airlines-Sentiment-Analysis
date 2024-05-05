@@ -1,5 +1,5 @@
 from preprocess import preprocess, vectorize, vectorizer
-from ml import tune_train_evaluate_mnb_muticlass, get_top_features
+from ml import tune_train_evaluate_mnb_muticlass, get_top_features, plot_top_words, extract_words
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 import joblib
@@ -28,18 +28,29 @@ def main():
     # 70% for training, 30% for validation
     xtrain, xtest, ytrain, ytest = train_test_split(X, y, test_size=0.3, train_size=0.7, random_state=42)
 
-    nb_best = tune_train_evaluate_mnb_muticlass(X, y, xtrain, xtest, ytrain, ytest)
-    # Save the model to a file
+    #nb_best = tune_train_evaluate_mnb_muticlass(X, y, xtrain, xtest, ytrain, ytest)
     #joblib.dump(nb_best, 'mnb_model.pkl')
 
-    # Later, to load the model
-    #nb_best = joblib.load('mnb_model.pkl')
+    nb_best = joblib.load('mnb_model.pkl')
+    # feature_names = vectorizer.get_feature_names_out()
+    # all_keywords = get_top_features(nb_best, feature_names)
+    # positive = latent_dirichlet_allocation(all_keywords[2])
+    # print(all_keywords[2])
+    # print(positive)
+
     feature_names = vectorizer.get_feature_names_out()
-    all_keywords = get_top_features(nb_best, feature_names)
-    positive = latent_dirichlet_allocation(all_keywords[2])
-    print(all_keywords[2])
-    print(positive)
-   
+    class_features = get_top_features(nb_best, feature_names, top_n=500)
+    #plot_top_words(class_features)
+
+    # LDA for positive class
+    pos_words = extract_words(class_features, 'positive')
+    print(pos_words)
+    positive = latent_dirichlet_allocation(pos_words)
+
+    # LDA for negative class
+    neg_words = extract_words(class_features, 'negative')
+    print(neg_words)
+    negative = latent_dirichlet_allocation(neg_words)   
     
 
     orig_stdout = sys.stdout
