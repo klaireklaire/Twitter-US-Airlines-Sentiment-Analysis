@@ -84,12 +84,4 @@ def vectorize(text, is_train = False):
 
 
 
-# print(doc.type())
-
-
-# print(nlp)
-# def get_text():
-#     doc = pd.read_csv('Tweets.csv')
-    
-#     return doc['text']
 
